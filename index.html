@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>food</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet >
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="css/normalize.css"> 
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+<style>
+/*make the website mobile friendly */
+
+@media screen and(max-width:700px){
+.formation{
+height:auto;
+	max-width:85%;
+	text-align:center;
+	}						
+}
+body{
+
+background-image:url("back.jpg");
+background-repeat:repeat; 
+background-size:1000px 1000px;
+max-height:90vh;
+margin:0;
+
+}
+
+nav{
+width:100%;
+background-color:#696974;
+border:2px solid black;
+text-align:center;
+}
+
+input{
+font-weight:bold;
+font-size:20px;
+padding:10px 10px 10px 10px;
+border:1px solid black;
+margin-right:30px;
+background-color:#696974;
+color:white;
+cursor:pointer;
+}
+
+form{
+display:inline;			
+	}
+
+.errormessage{
+	margin-bottom 20px;
+	padding:0px;
+	background-color:#b18191;
+	text-align:center;
+	font-size:14px;
+	transition:all 0.5s ease;
+	}
+
+
+.formtion{
+	background-color:#742a34;
+border:5px solid black;
+height:1300px;
+max-width:50%;
+margin-top:170px;
+margin-left:220px;
+padding:30px 30px 30px 30px;
+
+}
+
+
+.title {
+font-size:30px;
+font-weight:700;
+margin-bottom:15px;
+margin-top:20px;
+text-align:center;
+font-weight:bold;
+				}
+				
+.inputfield{
+padding:20px;
+margin-bottom:15px;
+align-items:center;
+text-align:center;
+padding-left:20px;
+				}
+				
+label{
+			font-weight:bold;
+				margin-right:20px;
+				font-size:25px;
+				font-family:tahoma;
+				color:white
+				}
+				
+.enter{
+	background-color:#e5e5e5;
+	width:80%;
+border:1px solid black;
+outline:none;
+font-size:20px;
+padding:15px 15px;
+padding-bottom:20px;
+color:black;
+
+				}
+#sub{
+border-radius:8px;
+color:black;
+font-weight:bold;
+text-align:center;
+width:100%;
+}
+
+	.tot{
+background-color:#330005;
+padding:0;
+margin:0;			
+text-align:center;
+				}
+				
+.tit{
+text-align:center;
+font-size:30px;
+font-weight:bold;
+background-color:#82000c;
+text-color:white;
+}
+
+
+</style>
+</head>
+<body>
+<header>
+<nav>
+<form action="food.html">
+<input type="submit" value="Home" action="food.html">
+</form>
+<form action="form.html">
+<input type="submit" value="Sign in ">
+</form>
+<form action="about-us.html">
+<input id="put" type="submit" value="about us" >
+</form>
+</nav>
+</header
+
+<div class="container">
+<div class="formtion">
+<div class="title" >Create an account !</div>
+<form  onsubmit="return checkpassword() " class="frmo" action="food.html">
+<div class="inputfield">
+<label>first name</label>
+
+<input class="enter" type="text" name="firstname" id="firstname" required >
+</div>
+<div class="inputfield">
+<label>last name</label>
+<input class="enter" type="text" required>
+</div>
+<div class="inputfield">
+<label>e-mail</label>
+<input  class="enter" type="email" required>
+</div>
+<div class="inputfield">
+
+<label>phone number</label>
+
+<input id="phonenumber" class="enter" type="tel"  required>
+
+</div>
+<div class="inputfield">
+
+<label>password</label>
+
+<input id="password" class="enter" type="password"  required>
+</div>
+<div class="errormessage" id="errormessage"></div>
+
+
+<div class="inputfield">
+<label>gender</label>
+<select id="select" class="enter" required>
+<option value=" ">select</option>
+<option value="male">male</option>
+<option value="female">female</option>
+</select>
+</div>
+<div class="inputfield">
+<label>adress</label>
+<textarea class="enter"type="textarea"  required></textarea>
+</div>
+<div class="inputfield">
+<input style=" background-color:#e6bcc7"  id="sub" class="enter" type="submit" value="submit" >
+</div>
+
+</form>
+</div>
+</div>
+<script>
+
+
+
+ function checkpassword(){
+var pass=document.getElementById("password");
+var phone=document.getElementById("phonenumber");
+var passd=/^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[A-Z])[a-zA-Z0-9!@#$%^&*]{8}$/;
+
+var phoner=/^\d{11}$/;
+
+var capital=/[A-Z]/g;
+
+
+var errormessage=document.getElementById("errormessage");
+var text;
+errormessage.style.padding="5px";
+var selec=document.getElementById("select")
+
+//phone number validation 
+
+if(! phone.value.match(phoner)){
+	alert("11 numeric digits are allowed in the phone number");
+ return false;
+ }  
+ 
+ //password validation 
+ 
+ if(pass.value.length >8 || pass.value.length< 8 ){
+   	text="the password must be only 8 character ";
+   	errormessage.innerHTML=text;   	
+   	return false;  	
+}
+
+else if(! pass.value.match(passd)){
+text="the password must start with a capital,contain one digit at least , a special character and no spaces allowed";
+errormessage.innerHTML=text;
+
+return false;
+}
+if(selec.value==" "){
+				alert("the gender is required");
+			return false;	
+				
+}
+return true;
+}
+
+  </script>
+
+
+</body>
+</html>
